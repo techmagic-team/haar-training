@@ -11,9 +11,9 @@ brew install --with-tbb opencv
 wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.9/opencv-2.4.9.zip
 unzip opencv-2.4.9.zip
 
-2. Clone this repository
+2. Clone current repository
 
-git clone https://github.com/mrnugget/opencv-haar-classifier-training
+https://github.com/techmagic-team/haar-training
 
 3. Put your positive images in the `./positive_images` folder and create a list
 of them:
@@ -27,13 +27,13 @@ find ./negative_images -iname "*.jpg" > negatives.txt
 5. Create positive samples with the `bin/createsamples.pl` script and save them
 to the `./samples` folder:
 
-perl bin/createsamples.pl positives.txt negatives.txt samples 1500\
+`perl bin/createsamples.pl positives.txt negatives.txt samples 1500\
 "opencv_createsamples -bgcolor 0 -bgthresh 0 -maxxangle 1.1\
--maxyangle 1.1 maxzangle 0.5 -maxidev 40 -w 80 -h 40"
+-maxyangle 1.1 maxzangle 0.5 -maxidev 40 -w 80 -h 40"`
 
 6. Use `tools/mergevec.py` to merge the samples in `./samples` into one file:
 
-python ./tools/mergevec.py -v samples/ -o samples.vec
+`python ./tools/mergevec.py -v samples/ -o samples.vec`
 
 Note: If you get the error `struct.error: unpack requires a string argument of length 12`
 then go into your **samples** directory and delete all files of length 0.
@@ -41,17 +41,17 @@ then go into your **samples** directory and delete all files of length 0.
 7. Start training the classifier with `opencv_traincascade`, which comes with
 OpenCV, and save the results to `./classifier`:
 
-opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt\
+`opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt\
 -numStages 20 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 1000\
 -numNeg 600 -w 80 -h 40 -mode ALL -precalcValBufSize 1024\
--precalcIdxBufSize 1024
+-precalcIdxBufSize 1024`
 
-If you want to train it faster, configure feature type option with LBP:
+If you want to train it faster, configure feature type option with LBP (NOTE: results will be not so ggod as with regular training):
 
-opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt\
+`opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt\
 -numStages 20 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 1000\
 -numNeg 600 -w 80 -h 40 -mode ALL -precalcValBufSize 1024\
--precalcIdxBufSize 1024 -featureType LBP
+-precalcIdxBufSize 1024 -featureType LBP`
 
 After starting the training program it will print back its parameters and then start training. Each stage will print out some analysis as it is trained:
 
