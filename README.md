@@ -6,10 +6,14 @@
 
 1. Install OpenCV & get OpenCV source
 
-brew tap homebrew/science
-brew install --with-tbb opencv
-wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.9/opencv-2.4.9.zip
-unzip opencv-2.4.9.zip
+`brew tap homebrew/science`
+
+`brew install --with-tbb opencv`
+
+`wget http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.9/opencv-2.4.9.zip`
+
+`unzip opencv-2.4.9.zip`
+
 
 2. Clone current repository
 
