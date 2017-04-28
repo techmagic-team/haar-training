@@ -13,16 +13,16 @@ unzip opencv-2.4.9.zip
 
 2. Clone current repository
 
-https://github.com/techmagic-team/haar-training
+`git clone https://github.com/techmagic-team/haar-training`
 
 3. Put your positive images in the `./positive_images` folder and create a list
 of them:
 
-find ./positive_images -iname "*.jpg" > positives.txt
+`find ./positive_images -iname "*.jpg" > positives.txt`
 
 4. Put the negative images in the `./negative_images` folder and create a list of them:
 
-find ./negative_images -iname "*.jpg" > negatives.txt
+`find ./negative_images -iname "*.jpg" > negatives.txt`
 
 5. Create positive samples with the `bin/createsamples.pl` script and save them
 to the `./samples` folder:
@@ -46,7 +46,7 @@ OpenCV, and save the results to `./classifier`:
 -numNeg 600 -w 80 -h 40 -mode ALL -precalcValBufSize 1024\
 -precalcIdxBufSize 1024`
 
-If you want to train it faster, configure feature type option with LBP (NOTE: results will be not so ggod as with regular training):
+If you want to train it faster, configure feature type option with LBP (NB! results will be not so ggod as with regular training: 20-30% lower accuracy, x-times faster):
 
 `opencv_traincascade -data classifier -vec samples.vec -bg negatives.txt\
 -numStages 20 -minHitRate 0.999 -maxFalseAlarmRate 0.5 -numPos 1000\
