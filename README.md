@@ -56,7 +56,7 @@ If you want to train it faster, configure feature type option with LBP (NOTE: re
 After starting the training program it will print back its parameters and then start training. Each stage will print out some analysis as it is trained:
 
 
-
+```
 ===== TRAINING 0-stage =====
 <BEGIN
 POS count : consumed   1000 : 1000
@@ -85,9 +85,9 @@ Precalculation time: 11
 +----+---------+---------+
 END>
 Training until now has taken 0 days 3 hours 19 minutes 16 seconds.
+```
 
-
-
+`
 Each row represents a feature that is being trained and contains some output about its HitRatio and FalseAlarm ratio. If a training stage only selects a few features (e.g. N = 2) then its possible something is wrong with your training data.
 
 At the end of each stage the classifier is saved to a file and the process can be stopped and restarted. This is useful if you are tweaking a machine/settings to optimize training speed.
