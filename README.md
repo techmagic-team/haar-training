@@ -96,10 +96,10 @@ At the end of each stage the classifier is saved to a file and the process can b
 
 You can test trained cascade using FACE DETECTION sample coming with OpenCV distirbution:
 
-cd ~/opencv-2.4.9/samples/c
-chmod +x build_all.sh
-./build_all.sh
-./facedetect --cascade="~/finished_classifier.xml"
+``cd ~/opencv-2.4.9/samples/c`
+`chmod +x build_all.sh`
+`./build_all.sh`
+`./facedetect --cascade="~/finished_classifier.xml"`
 
 
 
