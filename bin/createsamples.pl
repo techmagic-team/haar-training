@@ -75,5 +75,6 @@ for (my $k = 0; $k < $#positives; $k++ ) {
     my $vec = $outputdir . substr($img, $imgdirlen - 3) . ".vec" ;
     #print "$cmd -img $img -bg $tmpfile -vec $vec -num $num" . "\n";
     system("$cmd -img $img -bg $tmpfile -vec $vec -num $num");
+    system("cat $vec");
 }
 unlink($tmpfile);
