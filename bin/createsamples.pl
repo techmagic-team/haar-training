@@ -69,11 +69,11 @@ for (my $k = 0; $k < $#positives; $k++ ) {
     open(TMP, "> $tmpfile");
     print TMP @localnegatives;
     close(TMP);
-    system("cat $tmpfile");
+    #system("cat $tmpfile");
 
     !chomp($img);
     my $vec = $outputdir . substr($img, $imgdirlen - 3) . ".vec" ;
-    print "$cmd -img $img -bg $tmpfile -vec $vec -num $num" . "\n";
+    #print "$cmd -img $img -bg $tmpfile -vec $vec -num $num" . "\n";
     system("$cmd -img $img -bg $tmpfile -vec $vec -num $num");
 }
 unlink($tmpfile);
