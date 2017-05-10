@@ -72,7 +72,7 @@ for (my $k = 0; $k < $#positives; $k++ ) {
     #system("cat $tmpfile");
 
     !chomp($img);
-    my $vec = $outputdir . substr($img, $imgdirlen) . ".vec" ;
+    my $vec = $outputdir . substr($img, $imgdirlen - 3) . ".vec" ;
     print "$cmd -img $img -bg $tmpfile -vec $vec -num $num" . "\n";
     system("$cmd -img $img -bg $tmpfile -vec $vec -num $num");
 }
